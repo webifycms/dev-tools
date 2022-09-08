@@ -1,2 +1,3 @@
 # php-standard
-OneCMS PHP code standard fixer.
+
+OneCMS PHP code sniffer.
