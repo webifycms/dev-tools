@@ -7,14 +7,12 @@ OneCMS PHP code sniffer tool to automatically fix PHP Coding Standards.
 First add the following to your `composer.json`
 
 ```json
-...
 "repositories": [
   {
     "type": "vcs",
     "url": "https://github.com/getonecms/sniffer"
   }
 ]
-...
 ```
 
 Now it can be install via composer
