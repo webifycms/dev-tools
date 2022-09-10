@@ -10,10 +10,6 @@ use PhpCsFixer\Finder;
 /**
  * The PHP Standard fixer class.
  *
- * @version 0.0.1
- *
- * @since   0.0.1
- *
  * @author  Mohammed Shifreen
  */
 final class Fixer
