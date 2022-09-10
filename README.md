@@ -1,6 +1,6 @@
 # OneCMS Code Sniffer
 
-OneCMS PHP code sniffer tool to automatically fix PHP Coding Standards.
+OneCMS PHP code sniffer tool to automatically fix PHP Coding Standards and it is a wrapper tool for the php-cs-fixer tool.
 
 ## Installation
 
@@ -39,14 +39,16 @@ return (new Fixer($finder, $rules))->getConfig();
 
 ## Usage
 
-Run the following command to output the rules that can be applied.
+You can run the script and pass it's options `./vendor/bin/php-cs-fixer`. See the following examples:
+
+To only output the changes you may run the following.
 
 ```bash
-composer sniff
+./vendor/bin/php-cs-fixer fix --verbose --dry-run --diff --show-progress=dots
 ```
 
-Run the following command in order to format the files.
+To fix the files and output the changes you may run the following.
 
 ```bash
-composer format
+./vendor/bin/php-cs-fixer fix --verbose --show-progress=dots
 ```
