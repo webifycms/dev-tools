@@ -1,17 +1,7 @@
 {
     "name": "getonecms/sniffer",
-    "description": "OneCMS PHP code sniffer.",
-    "type": "onecms-library",
-    "require": {
-        "php": ">=8.1",
-        "friendsofphp/php-cs-fixer": "^3.0"
-    },
-    "autoload": {
-        "psr-4": {
-            "OneCMS\\Sniffer\\": "src"
-        }
-    },
-    "optimize-autoloader": true,
+    "description": "A tool to analyze and automatically fix PHP Coding Standards for OneCMS.",
+    "type": "onecms-tool",
     "authors": [
         {
             "name": "Mohammed Shifreen",
@@ -20,12 +10,14 @@
     ],
     "minimum-stability": "dev",
     "prefer-stable": true,
-    "scripts": {
-        "sniff": [
-            "./vendor/bin/php-cs-fixer fix --verbose --dry-run --diff --show-progress=dots"
-        ],
-        "format": [
-            "./vendor/bin/php-cs-fixer fix --verbose --show-progress=dots"
-        ]
-    }
+    "require": {
+        "php": ">=8.1",
+        "friendsofphp/php-cs-fixer": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "OneCMS\\Sniffer\\": "src/"
+        }
+    },
+    "optimize-autoloader": true
 }
