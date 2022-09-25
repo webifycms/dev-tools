@@ -1,6 +1,12 @@
 # OneCMS Code Sniffer
 
 OneCMS PHP code sniffer tool to automatically fix PHP Coding Standards and it is a wrapper tool for the php-cs-fixer tool.
+Set of development tools to analyze and auto fix code standards, formatting and other stuffs for OneCMS packages.
+
+The following libraries are included:
+
+- `friendsofphp/php-cs-fixer`
+- `phpstan/phpstan`
 
 ## Installation
 
@@ -52,3 +58,22 @@ To fix the files and output the changes you may run the following.
 ```bash
 ./vendor/bin/php-cs-fixer fix --verbose --show-progress=dots
 ```
+
+## TODO
+
+- [x] Install `phpstan/phpstan` library.
+- [ ] Add alias commands for the library commands, like the followings:
+
+```bash
+# ./vendor/bin/php-cs-fixer fix --verbose --dry-run --diff --show-progress=dots
+composer code-sniff
+
+# ./vendor/bin/php-cs-fixer fix --verbose --show-progress=dots
+composer code-sniff-fix
+
+# ./vendor/bin/phpstan
+composer code-analyze
+```
+
+- [ ] Add support to pass arguments to the alias commands.
+
