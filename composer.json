@@ -1,6 +1,6 @@
 {
-    "name": "getonecms/sniffer",
-    "description": "A tool to analyze and automatically fix PHP Coding Standards for OneCMS.",
+    "name": "getonecms/dev-tools",
+    "description": "Set of development tools to analyze and auto fix code standards, formatting and other stuffs for OneCMS packages.",
     "type": "onecms-tool",
     "authors": [
         {
@@ -19,5 +19,8 @@
             "OneCMS\\Sniffer\\": "src/"
         }
     },
-    "optimize-autoloader": true
+    "optimize-autoloader": true,
+    "require-dev": {
+        "phpstan/phpstan": "^1.8"
+    }
 }
