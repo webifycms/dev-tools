@@ -65,7 +65,7 @@ If you wish to auto fix the files and output the summary of changes you can run 
 ./vendor/bin/php-cs-fixer fix --verbose --show-progress=dots
 ```
 
->NOTE: You can also setup this extension with your favorite >IDE or editor, so you can able to get the advantage while >developing.
+>NOTE: You can also setup this extension with your favorite IDE or editor, so you can able to get the advantage while developing.
 
 ## TODO
 
