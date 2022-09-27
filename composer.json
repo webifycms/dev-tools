@@ -17,8 +17,12 @@
     },
     "autoload": {
         "psr-4": {
-            "OneCMS\\Tools\\": "src/",
-            "OneCMS\\Tools\\Test": "test/"
+            "OneCMS\\Tools\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "OneCMS\\Base\\Test\\": "test/"
         }
     },
     "optimize-autoloader": true

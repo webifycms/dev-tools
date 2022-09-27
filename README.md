@@ -85,3 +85,4 @@ composer code-analyze
 ```
 
 - [ ] Add support to pass arguments to the alias commands.
+- [ ] Add prettier php-cs-fixer plugin.
