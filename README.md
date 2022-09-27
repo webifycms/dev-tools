@@ -1,6 +1,5 @@
-# OneCMS Code Sniffer
+# OneCMS Dev Tools
 
-OneCMS PHP code sniffer tool to automatically fix PHP Coding Standards and it is a wrapper tool for the php-cs-fixer tool.
 Set of development tools to analyze and auto fix code standards, formatting and other stuffs for OneCMS packages.
 
 The following libraries are included:
