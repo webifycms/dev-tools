@@ -16,7 +16,7 @@ First add the following to your `composer.json`
 "repositories": [
   {
     "type": "vcs",
-    "url": "https://github.com/getonecms/sniffer"
+    "url": "https://github.com/getonecms/dev-tools"
   }
 ]
 ```
@@ -24,7 +24,7 @@ First add the following to your `composer.json`
 Now it can be install via composer
 
 ```bash
-composer require getonecms/sniffer --dev
+composer require getonecms/dev-tools --dev
 ```
 
 ## Configuration
@@ -32,7 +32,7 @@ composer require getonecms/sniffer --dev
 You can add the rules and finder instance in the following way to your config file `.php-cs-fixer.php`:
 
 ```php
-use OneCMS\Sniffer\Fixer;
+use OneCMS\Tools\Fixer;
 use PhpCsFixer\Finder;
 
 // create a finder instance according to your needs
@@ -45,23 +45,33 @@ return (new Fixer($finder, $rules))->getConfig();
 
 ## Usage
 
-You can run the script and pass it's options `./vendor/bin/php-cs-fixer`. See the following examples:
+- Analyze your code first with PHPStan static analyzer for errors and fix (manual fix):
 
-To only output the changes you may run the following.
+```bash
+vendor/bin/phpstan analyse [options] [<paths>...]
+```
+
+- Run code sniffer and format your codes.
+
+(Recommended) If you wish to fix manually you can just output the rules that will apply like the following.
 
 ```bash
 ./vendor/bin/php-cs-fixer fix --verbose --dry-run --diff --show-progress=dots
 ```
 
-To fix the files and output the changes you may run the following.
+If you wish to auto fix the files and output the summary of changes you can run the following.
 
 ```bash
 ./vendor/bin/php-cs-fixer fix --verbose --show-progress=dots
 ```
 
+>NOTE: You can also setup this extension with your favorite >IDE or editor, so you can able to get the advantage while >developing.
+
 ## TODO
 
 - [x] Install `phpstan/phpstan` library.
+- [ ] Use `pre-commit` hook to analyze code for errors using PHPStan and abort commit if found errors.
+- [ ] Use `pre-commit` hook to run code sniffer and abort commit if found errors.
 - [ ] Add alias commands for the library commands, like the followings:
 
 ```bash
@@ -76,4 +86,3 @@ composer code-analyze
 ```
 
 - [ ] Add support to pass arguments to the alias commands.
-
