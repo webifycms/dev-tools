@@ -20,21 +20,20 @@ use PhpCsFixer\Finder;
 
 /**
  * The PHP Standard fixer class.
- *
- * @author Mohammed Shifreen
  */
 final class Fixer
 {
-	private Finder $finder;
-
 	/**
 	 * The rules.
 	 *
 	 * @var array<string>
 	 */
-	private array $rules;
+	private readonly array $rules;
 
-	private ConfigInterface $config;
+	/**
+	 * The config object.
+	 */
+	private readonly ConfigInterface $config;
 
 	/**
 	 * The class constructor.
@@ -42,11 +41,10 @@ final class Fixer
 	 * @param array<string> $rules
 	 */
 	public function __construct(
-		Finder $finder,
+		public readonly Finder $finder,
 		array $rules = []
 	) {
 		$this->rules  = $this->mergeRules($rules);
-		$this->finder = $finder;
 		$this->config = (new Config())
 			->setRules($this->rules)
 			->setFinder($this->finder)
