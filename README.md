@@ -28,6 +28,8 @@ composer require getonecms/dev-tools --dev
 
 ## Configuration
 
+- PHP CS Fixer
+  
 You can add the rules and finder instance in the following way to your config file `.php-cs-fixer.php`:
 
 ```php
@@ -40,6 +42,20 @@ $finder = Finder::create()->in(__DIR__ . '/src');
 $rules = [];
 
 return (new Fixer($finder, $rules))->getConfig();
+```
+
+- Rector
+
+Add `rector.php` in the root directory and the following, if you need to add more paths you can add them as well:
+
+```php
+use OneCMS\Tools\Rector;
+
+// Initialize
+return (new Rector([
+    __DIR__ . '/src',
+    __DIR__ . '/test'
+]))->initialize();
 ```
 
 ## Usage
