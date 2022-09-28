@@ -25,5 +25,8 @@
             "OneCMS\\Base\\Test\\": "test/"
         }
     },
-    "optimize-autoloader": true
+    "optimize-autoloader": true,
+    "require-dev": {
+        "rector/rector": "^0.14.4"
+    }
 }
