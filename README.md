@@ -69,6 +69,7 @@ If you wish to auto fix the files and output the summary of changes you can run 
 ## TODO
 
 - [x] Install `phpstan/phpstan` library.
+- [x] Install Rector `rectorphp/rector` library.
 - [ ] Use `pre-commit` hook to analyze code for errors using PHPStan and abort commit if found errors.
 - [ ] Use `pre-commit` hook to run code sniffer and abort commit if found errors.
 - [ ] Add alias commands for the library commands, like the followings:
