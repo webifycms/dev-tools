@@ -15,7 +15,7 @@ declare(strict_types=1);
 use OneCMS\Tools\Rector;
 
 // Initialize
-return (new Rector([
+return (new Rector())->initialize([
     __DIR__ . '/src',
     __DIR__ . '/test'
-]))->initialize();
+]);

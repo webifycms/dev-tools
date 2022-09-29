@@ -25,21 +25,13 @@ use Rector\Set\ValueObject\SetList;
 final class Rector
 {
 	/**
-	 * The class constructor.
-	 *
-	 * @param array<string> $paths the paths rector should looking into the files
-	 */
-	public function __construct(public readonly array $paths)
+     * Initialize the rector.
+     *
+     * @param array<string> $paths
+     * @return \Closure
+     */
+	public function initialize(array $paths): \Closure
 	{
-	}
-
-	/**
-	 * Initialize the rector.
-	 */
-	public function initialize(): \Closure
-	{
-		$paths = $this->paths;
-
 		return static function (RectorConfig $rectorConfig) use ($paths): void {
 			// sets the paths
 			$rectorConfig->paths($paths);
