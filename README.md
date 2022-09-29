@@ -6,6 +6,7 @@ The following libraries are included:
 
 - `friendsofphp/php-cs-fixer`
 - `phpstan/phpstan`
+- `rectorphp/rector`
 
 ## Installation
 
@@ -52,10 +53,10 @@ Add `rector.php` in the root directory and the following, if you need to add mor
 use OneCMS\Tools\Rector;
 
 // Initialize
-return (new Rector([
+return (new Rector())->initialize([
     __DIR__ . '/src',
     __DIR__ . '/test'
-]))->initialize();
+]);
 ```
 
 ## Usage
