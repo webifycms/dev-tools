@@ -45,6 +45,17 @@ $rules = [];
 return (new Fixer($finder, $rules))->getConfig();
 ```
 
+- PHPStan
+
+Add `phpstan.neon` in the root directory and you can include `src/phpstan.neon` file like below if you wish but not necessary.
+
+```neon
+...
+includes:
+  - vendor/getonecms/dev-tools/src/phpstan.neon
+...
+```
+
 - Rector
 
 Add `rector.php` in the root directory and the following, if you need to add more paths you can add them as well:
@@ -81,7 +92,7 @@ If you wish to auto fix the files and output the summary of changes you can run 
 ./vendor/bin/php-cs-fixer fix --verbose --show-progress=dots
 ```
 
->NOTE: You can also setup this extension with your favorite IDE or editor, so you can able to get the advantage while developing.
+>***NOTE:** You can also setup this extension with your favorite IDE or editor, so you can able to get the advantage while developing.*
 
 ## TODO
 
