@@ -1,13 +1,12 @@
 <?php
-
 /**
- * The file is part of the "getonecms/dev-tools", OneCMS extension package.
+ * The file is part of the "getonecms/dev-tools", OneCMS development tools.
  *
- * @see https://getonecms.com/extension/tools
+ * @see https://getonecms.com/tools/development-tools
  *
- * @copyright Copyright (c) 2022 OneCMS
+ * @license Copyright (c) 2022 OneCMS
  * @license https://getonecms.com/extension/tools/license
- * @author  Mohammed Shifreen <mshifreen@gmail.com>
+ * @author Mohammed Shifreen <mshifreen@gmail.com>
  */
 
 declare(strict_types=1);
@@ -25,11 +24,10 @@ use Rector\Set\ValueObject\SetList;
 final class Rector
 {
 	/**
-     * Initialize the rector.
-     *
-     * @param array<string> $paths
-     * @return \Closure
-     */
+	 * Initialize the rector.
+	 *
+	 * @param array<string> $paths
+	 */
 	public function initialize(array $paths): \Closure
 	{
 		return static function (RectorConfig $rectorConfig) use ($paths): void {

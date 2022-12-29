@@ -1,13 +1,12 @@
 <?php
-
 /**
- * The file is part of the "getonecms/dev-tools", OneCMS extension package.
+ * The file is part of the "getonecms/dev-tools", OneCMS development tools.
  *
- * @see https://getonecms.com/extension/tools
+ * @see https://getonecms.com/tools/development-tools
  *
- * @copyright Copyright (c) 2022 OneCMS
+ * @license Copyright (c) 2022 OneCMS
  * @license https://getonecms.com/extension/tools/license
- * @author  Mohammed Shifreen <mshifreen@gmail.com>
+ * @author Mohammed Shifreen <mshifreen@gmail.com>
  */
 
 declare(strict_types=1);
@@ -33,5 +32,4 @@ return [
 		'less_and_greater'     => true,
 		'always_move_variable' => true,
 	],
-	// 'no_blank_lines_before_namespace' => true,
 ];

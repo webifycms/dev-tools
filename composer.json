@@ -14,7 +14,7 @@
         "php": ">=8.1",
         "friendsofphp/php-cs-fixer": "^3.0",
         "phpstan/phpstan": "^1.8",
-        "rector/rector": "^0.14.4"
+        "rector/rector": "^0.14"
     },
     "autoload": {
         "psr-4": {
@@ -26,5 +26,16 @@
             "OneCMS\\Base\\Test\\": "test/"
         }
     },
-    "optimize-autoloader": true
+    "optimize-autoloader": true,
+    "scripts": {
+        "code-sniff": [
+            "php-cs-fixer fix --verbose --dry-run --diff --show-progress=dots"
+        ],
+        "code-format": [
+            "php-cs-fixer fix --verbose --show-progress=dots"
+        ],
+        "code-analyze": [
+            "phpstan"
+        ]
+    }
 }
