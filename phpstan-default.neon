@@ -6,12 +6,5 @@
 # @license https://getonecms.com/extension/tools/license
 # @author Mohammed Shifreen <mshifreen@gmail.com>
 
-includes:
-	- phpstan-default.neon
-
 parameters:
-	paths:
-		- src
-		- test
-	excludePaths:
-		- vendor
+	level: 6

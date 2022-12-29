@@ -92,7 +92,7 @@ If you wish to auto fix the files and output the summary of changes you can run 
 ./vendor/bin/php-cs-fixer fix --verbose --show-progress=dots
 ```
 
->***NOTE:** You can also setup this extension with your favorite IDE or editor, so you can able to get the advantage while developing.*
+>***NOTE:** You can also setup this extension with your favorite IDE or editor, so you can able to get more advantages like format on save while developing.*
 
 ## TODO
 
@@ -107,7 +107,7 @@ If you wish to auto fix the files and output the summary of changes you can run 
 composer code-sniff
 
 # ./vendor/bin/php-cs-fixer fix --verbose --show-progress=dots
-composer code-sniff-fix
+composer code-format
 
 # ./vendor/bin/phpstan
 composer code-analyze
