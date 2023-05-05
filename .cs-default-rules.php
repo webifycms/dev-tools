@@ -8,7 +8,6 @@
  * @license https://webifycms.com/extension/tools/license
  * @author Mohammed Shifreen <mshifreen@gmail.com>
  */
-
 declare(strict_types=1);
 
 return [
@@ -31,5 +30,8 @@ return [
         'identical'            => true,
         'less_and_greater'     => true,
         'always_move_variable' => true,
+    ],
+    'php_unit_test_case_static_method_calls' => [ // overrides that inherits from @PhpCsFixer:risky rule
+        'call_type' => 'this',
     ],
 ];
