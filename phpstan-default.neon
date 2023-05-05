@@ -1,9 +1,9 @@
-# The file is part of the "getonecms/dev-tools", OneCMS development tools.
+# The file is part of the "webifycms/dev-tools", WebifyCMS development tools.
 #
-# @see https://getonecms.com/tools/development-tools
+# @see https://webifycms.com/tools/development-tools
 #
-# @license Copyright (c) 2022 OneCMS
-# @license https://getonecms.com/extension/tools/license
+# @license Copyright (c) 2022 WebifyCMS
+# @license https://webifycms.com/extension/tools/license
 # @author Mohammed Shifreen <mshifreen@gmail.com>
 
 parameters:

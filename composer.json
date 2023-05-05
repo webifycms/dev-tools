@@ -1,7 +1,7 @@
 {
-    "name": "getonecms/dev-tools",
-    "description": "Set of development tools to analyze and auto fix code standards, formatting and other stuffs for OneCMS packages.",
-    "type": "onecms-tool",
+    "name": "webifycms/dev-tools",
+    "description": "Set of development tools to analyze and auto fix code standards, formatting and other stuffs for WebifyCMS packages.",
+    "type": "webifycms-tool",
     "authors": [
         {
             "name": "Mohammed Shifreen",
@@ -18,12 +18,12 @@
     },
     "autoload": {
         "psr-4": {
-            "OneCMS\\Tools\\": "src/"
+            "Webify\\Tools\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "OneCMS\\Base\\Test\\": "test/"
+            "Webify\\Tools\\Test\\": "test/"
         }
     },
     "optimize-autoloader": true,
