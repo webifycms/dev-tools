@@ -1,6 +1,6 @@
-# OneCMS Dev Tools
+# WebifyCMS Dev Tools
 
-Set of development tools to analyze and auto fix code standards, formatting and other stuffs for OneCMS packages.
+Set of development tools to analyze and auto fix code standards, formatting and other stuffs for WebifyCMS packages.
 
 The following libraries are included:
 
@@ -16,15 +16,15 @@ First add the following to your `composer.json`
 "repositories": [
   {
     "type": "vcs",
-    "url": "https://github.com/getonecms/dev-tools"
+    "url": "https://github.com/webifycms/dev-tools"
   }
 ]
 ```
 
-Now it can be install via composer
+Now it can be installed via composer
 
 ```bash
-composer require getonecms/dev-tools --dev
+composer require webifycms/dev-tools --dev
 ```
 
 ## Configuration
@@ -34,7 +34,7 @@ composer require getonecms/dev-tools --dev
 You can add the rules and finder instance in the following way to your config file `.php-cs-fixer.php`:
 
 ```php
-use OneCMS\Tools\Fixer;
+use Webify\Tools\Fixer;
 use PhpCsFixer\Finder;
 
 // create a finder instance according to your needs
@@ -52,7 +52,7 @@ Add `phpstan.neon` in the root directory and you can include `src/phpstan.neon` 
 ```neon
 ...
 includes:
-  - vendor/getonecms/dev-tools/src/phpstan.neon
+  - vendor/webifycms/dev-tools/src/phpstan.neon
 ...
 ```
 
@@ -61,7 +61,7 @@ includes:
 Add `rector.php` in the root directory and the following, if you need to add more paths you can add them as well:
 
 ```php
-use OneCMS\Tools\Rector;
+use Webify\Tools\Rector;
 
 // Initialize
 return (new Rector())->initialize([
@@ -80,19 +80,20 @@ vendor/bin/phpstan analyse [options] [<paths>...]
 
 - Run code sniffer and format your codes.
 
-(Recommended) If you wish to fix manually you can just output the rules that will apply like the following.
+(Recommended) If you wish to fix manually, you can just output the rules that will apply like the following.
 
 ```bash
 ./vendor/bin/php-cs-fixer fix --verbose --dry-run --diff --show-progress=dots
 ```
 
-If you wish to auto fix the files and output the summary of changes you can run the following.
+If you wish to auto fix the files, and output the summary of changes you can run the following.
 
 ```bash
 ./vendor/bin/php-cs-fixer fix --verbose --show-progress=dots
 ```
 
->***NOTE:** You can also setup this extension with your favorite IDE or editor, so you can able to get more advantages like format on save while developing.*
+>***NOTE:** You can also set up this extension with your favorite IDE or editor, so you can get more 
+> advantages like format on save while developing.*
 
 ## TODO
 
