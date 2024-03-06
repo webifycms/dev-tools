@@ -8,13 +8,12 @@
  * @license https://webifycms.com/extension/tools/license
  * @author Mohammed Shifreen <mshifreen@gmail.com>
  */
-
 declare(strict_types=1);
 
-use Webify\Tools\Rector;
+use Webify\Tools\Rector\Rector;
 
 // Initialize
 return (new Rector())->initialize([
-    __DIR__.'/src',
-    __DIR__.'/test',
+	__DIR__ . '/src',
+	__DIR__ . '/test',
 ]);

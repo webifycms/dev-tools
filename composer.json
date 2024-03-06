@@ -38,6 +38,9 @@
         ],
         "code-analyze": [
             "phpstan"
+        ],
+        "rector": [
+            "rector"
         ]
     }
 }
