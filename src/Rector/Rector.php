@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The file is part of the "webifycms/dev-tools", WebifyCMS development tools.
  *
@@ -14,7 +15,6 @@ namespace Webify\Tools\Rector;
 
 use Rector\Config\RectorConfig;
 use Rector\Configuration\RectorConfigBuilder;
-use Rector\Set\ValueObject\SetList;
 use Rector\TypeDeclaration\Rector\Property\TypedPropertyFromStrictConstructorRector;
 
 /**
@@ -31,11 +31,6 @@ final class Rector
 	{
 		return RectorConfig::configure()
 			->withPaths($paths)
-			->withSets(
-				[
-					SetList::PHP_81,
-				]
-			)
 			->withRules(
 				[
 					TypedPropertyFromStrictConstructorRector::class,
@@ -43,7 +38,8 @@ final class Rector
 			)
 			->withPreparedSets(
 				deadCode: true,
-				codeQuality: true
+				codeQuality: true,
+				codingStyle: true
 			)
 		;
 	}

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The file is part of the "webifycms/dev-tools", WebifyCMS development tools.
  *
@@ -13,7 +14,7 @@ declare(strict_types=1);
 use Webify\Tools\Rector\Rector;
 
 // Initialize
-return (new Rector())->initialize([
-	__DIR__ . '/src',
-	__DIR__ . '/test',
-]);
+return (new Rector())
+	->initialize([__DIR__ . '/src', __DIR__ . '/test'])
+	->withPhpSets(php81: true)
+;

@@ -8,10 +8,3 @@
 
 includes:
 	- phpstan-default.neon
-
-parameters:
-	paths:
-		- src
-		- test
-	excludePaths:
-		- vendor
