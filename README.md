@@ -47,13 +47,13 @@ return (new Fixer($finder, $rules))->getConfig();
 
 - PHPStan
 
-Add `phpstan.neon` in the root directory and you can include `src/phpstan.neon` file like below if you wish but not necessary.
+Add `phpstan.neon` in the root directory, and you can include `src/phpstan.neon` file like below if you wish but not necessary.
 
 ```neon
-...
+#...
 includes:
   - vendor/webifycms/dev-tools/src/phpstan.neon
-...
+#...
 ```
 
 - Rector
@@ -64,10 +64,12 @@ Add `rector.php` in the root directory and the following, if you need to add mor
 use Webify\Tools\Rector;
 
 // Initialize
-return (new Rector())->initialize([
-    __DIR__ . '/src',
-    __DIR__ . '/test'
-]);
+return (new Rector())
+    ->initialize([
+        __DIR__ . '/src',
+        __DIR__ . '/test'
+    ])
+    ->withPhpSets(php81: true);
 ```
 
 ## Usage
@@ -83,13 +85,23 @@ vendor/bin/phpstan analyse [options] [<paths>...]
 (Recommended) If you wish to fix manually, you can just output the rules that will apply like the following.
 
 ```bash
-./vendor/bin/php-cs-fixer fix --verbose --dry-run --diff --show-progress=dots
+./vendor/bin/php-cs-fixer fix --verbose --diff --show-progress=dots --dry-run
 ```
 
 If you wish to auto fix the files, and output the summary of changes you can run the following.
 
 ```bash
 ./vendor/bin/php-cs-fixer fix --verbose --show-progress=dots
+```
+
+Upgrade code with RectorPHP
+
+```bash
+# to output the changes only
+./vendor/bin/rector process --dry-run
+
+# to make the changes
+./vendor/bin/rector process
 ```
 
 >***NOTE:** You can also set up this extension with your favorite IDE or editor, so you can get more 
@@ -101,18 +113,18 @@ If you wish to auto fix the files, and output the summary of changes you can run
 - [x] Install Rector `rectorphp/rector` library.
 - [ ] Use `pre-commit` hook to analyze code for errors using PHPStan and abort commit if found errors.
 - [ ] Use `pre-commit` hook to run code sniffer and abort commit if found errors.
-- [ ] Add alias commands for the library commands, like the followings:
+- [x] Add alias commands for the library commands, like the followings:
 
 ```bash
-# ./vendor/bin/php-cs-fixer fix --verbose --dry-run --diff --show-progress=dots
+# ./vendor/bin/php-cs-fixer fix --verbose --diff --show-progress=dots --dry-run
 composer code-sniff
 
 # ./vendor/bin/php-cs-fixer fix --verbose --show-progress=dots
 composer code-format
 
 # ./vendor/bin/phpstan
-composer code-analyze
+composer code-analyse
 ```
 
 - [ ] Add support to pass arguments to the alias commands.
-- [ ] Add prettier php-cs-fixer plugin.
+- [ ] ~~Add prettier php-cs-fixer plugin.~~

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The file is part of the "webifycms/dev-tools", WebifyCMS development tools.
  *
@@ -35,5 +36,6 @@ final class PHPCsFixerDefaultRules
 			'less_and_greater'     => true,
 			'always_move_variable' => true,
 		],
+		'declare_strict_types' => true, // risky rule allowed
 	];
 }

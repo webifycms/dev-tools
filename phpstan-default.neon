@@ -7,4 +7,9 @@
 # @author Mohammed Shifreen <mshifreen@gmail.com>
 
 parameters:
-	level: 6
+	level: 8
+	paths:
+	    - src
+	    - test
+	excludePaths:
+	    - vendor
