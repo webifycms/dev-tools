@@ -12,4 +12,4 @@ parameters:
 	    - src
 	    - test
 	excludePaths:
-	    - vendor
+	    - vendor (?) # optional, might not exist
