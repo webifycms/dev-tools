@@ -1,13 +1,13 @@
 <?php
 
 /**
- * The file is part of the "webifycms/dev-tools", WebifyCMS development tools.
+ * 	The file is part of the "webifycms/dev-tools", WebifyCMS development tools.
  *
- * @see https://webifycms.com/tools/development-tools
+ * 	@see https://webifycms.com/tools/development-tools
  *
- * @license Copyright (c) 2022 WebifyCMS
- * @license https://webifycms.com/extension/tools/license
- * @author Mohammed Shifreen <mshifreen@gmail.com>
+ * 	@license Copyright (c) 2022 WebifyCMS
+ * 	@license https://webifycms.com/extension/tools/license
+ * 	@author Mohammed Shifreen <mshifreen@gmail.com>
  */
 declare(strict_types=1);
 
@@ -27,5 +27,22 @@ $finder = Finder::create()
 	->ignoreDotFiles(false)
 	->name('*.php')
 ;
+$header = <<<'HEADER'
+		The file is part of the "webifycms/dev-tools", WebifyCMS development tools.
 
-return (new Fixer($finder))->getConfig()->setUsingCache(false);
+		@see https://webifycms.com/tools/development-tools
+
+		@license Copyright (c) 2022 WebifyCMS
+		@license https://webifycms.com/extension/tools/license
+		@author Mohammed Shifreen <mshifreen@gmail.com>
+	HEADER;
+$rules = [
+	'header_comment' => [
+		'header'       => $header,
+		'location'     => 'after_open',
+		'comment_type' => 'PHPDoc',
+		'separate'     => 'top',
+	],
+];
+
+return new Fixer($finder, $rules)->getConfig()->setUsingCache(false);

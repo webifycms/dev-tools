@@ -1,13 +1,13 @@
 <?php
 
 /**
- * The file is part of the "webifycms/dev-tools", WebifyCMS development tools.
+ * 	The file is part of the "webifycms/dev-tools", WebifyCMS development tools.
  *
- * @see https://webifycms.com/tools/development-tools
+ * 	@see https://webifycms.com/tools/development-tools
  *
- * @license Copyright (c) 2022 WebifyCMS
- * @license https://webifycms.com/extension/tools/license
- * @author Mohammed Shifreen <mshifreen@gmail.com>
+ * 	@license Copyright (c) 2022 WebifyCMS
+ * 	@license https://webifycms.com/extension/tools/license
+ * 	@author Mohammed Shifreen <mshifreen@gmail.com>
  */
 declare(strict_types=1);
 
@@ -20,19 +20,19 @@ use PhpCsFixer\Finder;
 /**
  * The PHP Standard fixer class.
  */
-final class Fixer
+final readonly class Fixer
 {
 	/**
 	 * The rules.
 	 *
 	 * @var array<string, array<string, mixed>|bool>
 	 */
-	private readonly array $rules;
+	private array $rules;
 
 	/**
 	 * The config object.
 	 */
-	private readonly ConfigInterface $config;
+	private ConfigInterface $config;
 
 	/**
 	 * The class constructor.
@@ -40,11 +40,11 @@ final class Fixer
 	 * @param array<string, array<string, mixed>|bool> $rules
 	 */
 	public function __construct(
-		public readonly Finder $finder,
+		public Finder $finder,
 		array $rules = []
 	) {
 		$this->rules  = $this->mergeRules($rules);
-		$this->config = (new Config())
+		$this->config = new Config()
 			->setRules($this->rules)
 			->setFinder($this->finder)
 			->setIndent("\t")
@@ -70,6 +70,6 @@ final class Fixer
 	 */
 	private function mergeRules(array $rules): array
 	{
-		return array_merge(PHPCsFixerDefaultRules::RULES, $rules);
+		return array_merge(DefaultRules::RULES, $rules);
 	}
 }
