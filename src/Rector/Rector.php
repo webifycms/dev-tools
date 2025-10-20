@@ -1,13 +1,13 @@
 <?php
 
 /**
- * The file is part of the "webifycms/dev-tools", WebifyCMS development tools.
+ * 	The file is part of the "webifycms/dev-tools", WebifyCMS development tools.
  *
- * @see https://webifycms.com/tools/development-tools
+ * 	@see https://webifycms.com/tools/development-tools
  *
- * @license Copyright (c) 2022 WebifyCMS
- * @license https://webifycms.com/extension/tools/license
- * @author Mohammed Shifreen <mshifreen@gmail.com>
+ * 	@license Copyright (c) 2022 WebifyCMS
+ * 	@license https://webifycms.com/extension/tools/license
+ * 	@author Mohammed Shifreen <mshifreen@gmail.com>
  */
 declare(strict_types=1);
 
