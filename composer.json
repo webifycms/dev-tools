@@ -1,6 +1,7 @@
 {
     "name": "webifycms/dev-tools",
     "description": "Set of development tools to analyze and auto fix code standards, formatting and other stuffs for WebifyCMS packages.",
+    "license": "MIT",
     "type": "webifycms-tool",
     "authors": [
         {
