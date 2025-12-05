@@ -10,18 +10,7 @@ The following libraries are included:
 
 ## Installation
 
-First add the following to your `composer.json`
-
-```json
-"repositories": [
-  {
-    "type": "vcs",
-    "url": "https://github.com/webifycms/dev-tools"
-  }
-]
-```
-
-Now it can be installed via composer
+Install via composer
 
 ```bash
 composer require webifycms/dev-tools --dev
@@ -111,9 +100,7 @@ Upgrade code with RectorPHP
 
 - [x] Install `phpstan/phpstan` library.
 - [x] Install Rector `rectorphp/rector` library.
-- [ ] Use `pre-commit` hook to analyze code for errors using PHPStan and abort commit if found errors.
-- [ ] Use `pre-commit` hook to run code sniffer and abort commit if found errors.
-- [x] Add alias commands for the library commands, like the followings:
+- [x] Add alias commands for the library commands, like the following:
 
 ```bash
 # ./vendor/bin/php-cs-fixer fix --verbose --diff --show-progress=dots --dry-run
@@ -126,5 +113,4 @@ composer code-format
 composer code-analyse
 ```
 
-- [ ] Add support to pass arguments to the alias commands.
-- [ ] ~~Add prettier php-cs-fixer plugin.~~
+- [x] Add support to pass arguments to the alias commands.

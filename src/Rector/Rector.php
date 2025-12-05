@@ -18,12 +18,12 @@ use Rector\Configuration\RectorConfigBuilder;
 use Rector\TypeDeclaration\Rector\Property\TypedPropertyFromStrictConstructorRector;
 
 /**
- * Rector library initializer.
+ * Rector library initialiser.
  */
 final class Rector
 {
 	/**
-	 * Initialize the rector.
+	 * Initialise the rector.
 	 *
 	 * @param array<string> $paths
 	 */
