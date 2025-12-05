@@ -13,9 +13,7 @@ declare(strict_types=1);
 
 namespace Webify\Tools\Fixer;
 
-use PhpCsFixer\Config;
-use PhpCsFixer\ConfigInterface;
-use PhpCsFixer\Finder;
+use PhpCsFixer\{Config, ConfigInterface, Finder};
 
 /**
  * The PHP Standard fixer class.
