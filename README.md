@@ -6,7 +6,8 @@ The following libraries are included:
 
 - `friendsofphp/php-cs-fixer`
 - `phpstan/phpstan`
-- `rectorphp/rector`
+- `rector/rector`
+- `symfony/var-dumper`
 
 ## Installation
 
@@ -36,13 +37,11 @@ return (new Fixer($finder, $rules))->getConfig();
 
 - PHPStan
 
-Add `phpstan.neon` in the root directory, and you can include `src/phpstan.neon` file like below if you wish but not necessary.
+Add `phpstan.neon` in the root directory, and include the default config like below:
 
 ```neon
-#...
 includes:
-  - vendor/webifycms/dev-tools/src/phpstan.neon
-#...
+  - vendor/webifycms/dev-tools/phpstan-default.neon
 ```
 
 - Rector
@@ -93,24 +92,59 @@ Upgrade code with RectorPHP
 ./vendor/bin/rector process
 ```
 
+## Debugging
+
+The `symfony/var-dumper` package is included and provides the `dump()` and `dd()` helper functions for inspecting
+variables during development.
+
+e.g. use `dump()` within your `.php-cs-fixer.php` or `rector.php` config files to inspect the resolved configuration:
+
+```php
+use Webify\Tools\Fixer;
+use PhpCsFixer\Finder;
+
+$finder = Finder::create()->in(__DIR__ . '/src');
+$config = (new Fixer($finder))->getConfig();
+
+// Inspect the merged rules before returning
+dump($config->getRules());
+
+return $config;
+```
+
+e.g. use `dd()` function (dump and die) to halt execution after dumping:
+
+```php
+$config = (new Fixer($finder))->getConfig();
+dd($config->getRules());
+```
+
+## Testing
+
+Run unit tests with PHPUnit:
+
+```bash
+vendor/bin/phpunit
+```
+
 >***NOTE:** You can also set up this extension with your favorite IDE or editor, so you can get more 
 > advantages like format on save while developing.*
 
 ## TODO
 
 - [x] Install `phpstan/phpstan` library.
-- [x] Install Rector `rectorphp/rector` library.
+- [x] Install Rector `rector/rector` library.
 - [x] Add alias commands for the library commands, like the following:
 
 ```bash
 # ./vendor/bin/php-cs-fixer fix --verbose --diff --show-progress=dots --dry-run
-composer code-sniff
+composer sniff
 
 # ./vendor/bin/php-cs-fixer fix --verbose --show-progress=dots
 composer code-format
 
 # ./vendor/bin/phpstan
-composer code-analyse
+composer analyse
 ```
 
 - [x] Add support to pass arguments to the alias commands.
