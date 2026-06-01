@@ -1,6 +1,6 @@
 # WebifyCMS Dev Tools
 
-Set of development tools to analyze and auto fix code standards, formatting and other stuffs for WebifyCMS packages.
+Set of development tools to analyze and auto-fix code standards, formatting and other stuff for WebifyCMS packages.
 
 The following libraries are included:
 
@@ -46,7 +46,7 @@ includes:
 
 - Rector
 
-Add `rector.php` in the root directory and the following, if you need to add more paths you can add them as well:
+Add `rector.php` in the root directory and the following, if you need to add more paths, you can add them as well:
 
 ```php
 use Webify\Tools\Rector;
@@ -68,6 +68,15 @@ return (new Rector())
 vendor/bin/phpstan analyse [options] [<paths>...]
 ```
 
+Additionally, add the following to your `phpstan.neon` file to enable installed PHPStan extensions:
+
+```neon
+includes:
+    - vendor/phpstan/phpstan-strict-rules/rules.neon
+    - vendor/phpstan/phpstan-phpunit/extension.neon
+    - vendor/phpstan/phpstan-deprecation-rules/rules.neon
+```
+
 - Run code sniffer and format your codes.
 
 (Recommended) If you wish to fix manually, you can just output the rules that will apply like the following.
@@ -76,7 +85,7 @@ vendor/bin/phpstan analyse [options] [<paths>...]
 ./vendor/bin/php-cs-fixer fix --verbose --diff --show-progress=dots --dry-run
 ```
 
-If you wish to auto fix the files, and output the summary of changes you can run the following.
+If you wish to auto-fix the files and output the summary of changes, you can run the following.
 
 ```bash
 ./vendor/bin/php-cs-fixer fix --verbose --show-progress=dots

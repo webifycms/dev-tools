@@ -6,10 +6,6 @@
 # @license https://webifycms.com/extension/tools/license
 # @author Mohammed Shifreen <mshifreen@gmail.com>
 
-includes:
-    - vendor/phpstan/phpstan-strict-rules/rules.neon
-    - vendor/phpstan/phpstan-phpunit/extension.neon
-    - vendor/phpstan/phpstan-deprecation-rules/rules.neon
 parameters:
 	level: 8
 	treatPhpDocTypesAsCertain: false
