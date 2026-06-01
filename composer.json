@@ -15,10 +15,15 @@
         "php": ">=8.4",
         "friendsofphp/php-cs-fixer": "^3.0",
         "phpstan/phpstan": "^2.0",
-        "rector/rector": "^2.0"
+        "rector/rector": "^2.0",
+        "phpstan/phpstan-strict-rules": "^2.0",
+        "phpstan/phpstan-phpunit": "^2.0",
+        "phpstan/phpstan-deprecation-rules": "^2.0",
+        "symfony/var-dumper": "^8.1"
     },
     "require-dev": {
-        "phpunit/phpunit": "^12"
+        "phpunit/phpunit": "^13",
+        "roave/security-advisories": "dev-latest"
     },
     "autoload": {
         "psr-4": {
@@ -30,15 +35,14 @@
             "Webify\\Tools\\Test\\": "test/"
         }
     },
-    "optimize-autoloader": true,
+    "config": {
+        "optimize-autoloader": true
+    },
     "scripts": {
-        "code-sniff": [
+        "sniff": [
             "php-cs-fixer fix --verbose --dry-run --diff --show-progress=dots"
         ],
-        "code-format": [
-            "php-cs-fixer fix --verbose --show-progress=dots"
-        ],
-        "code-analyse": [
+        "analyse": [
             "phpstan"
         ],
         "rector": [
@@ -46,6 +50,13 @@
         ],
         "rector-process": [
             "rector process"
+        ],
+        "test": [
+            "phpunit"
+        ],
+        "code-check": ["@analyse", "@sniff"],
+        "code-format": [
+            "php-cs-fixer fix --verbose --show-progress=dots"
         ]
     }
 }

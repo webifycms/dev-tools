@@ -18,14 +18,25 @@ use Rector\Configuration\RectorConfigBuilder;
 use Rector\TypeDeclaration\Rector\Property\TypedPropertyFromStrictConstructorRector;
 
 /**
- * Rector library initialiser.
+ * Rector library initializer.
+ *
+ * Provides a convenient entry point for configuring Rector within WebifyCMS
+ * projects. Sets up paths, registered rules (such as typed property inference
+ * from strict constructors), and prepared sets for dead code removal, code
+ * quality improvements, and coding style adjustments.
  */
 final class Rector
 {
 	/**
-	 * Initialise the rector.
+	 * Initialize and configure the Rector configuration builder.
 	 *
-	 * @param array<string> $paths
+	 * Applies the given source paths, registers the
+	 * TypedPropertyFromStrictConstructorRector rule, and enables the dead-code,
+	 * code-quality, and coding-style prepared sets.
+	 *
+	 * @param array<string> $paths an array of directory or file paths to analyse
+	 *
+	 * @return RectorConfigBuilder The configured Rector builder ready to be returned from a rector.php config file.
 	 */
 	public function initialize(array $paths): RectorConfigBuilder
 	{

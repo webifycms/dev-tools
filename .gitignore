@@ -1,6 +1,7 @@
 /vendor/
 /.idea/
 /.vscode/
+/.phpunit.cache/
 .php-cs-fixer.cache
 .php-cs-fixer.php
 phpstan.neon
