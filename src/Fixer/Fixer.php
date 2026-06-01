@@ -17,25 +17,37 @@ use PhpCsFixer\{Config, ConfigInterface, Finder};
 
 /**
  * The PHP Standard fixer class.
+ *
+ * Provides a convenient wrapper around PHP-CS-Fixer configuration, applying
+ * a set of default rules that follow PSR-12, @PhpCsFixer, and PHP 8.x migration
+ * standards. Custom rules can be merged with the defaults on construction.
  */
 final readonly class Fixer
 {
 	/**
-	 * The rules.
+	 * The merged set of rules applied to the configuration.
+	 *
+	 * Combines the default rules from DefaultRules::RULES with any user-provided
+	 * overrides. Each key is a rule name, and the value is either a boolean
+	 * (enable/disable) or an associative array of rule-specific options.
 	 *
 	 * @var array<string, array<string, mixed>|bool>
 	 */
 	private array $rules;
 
 	/**
-	 * The config object.
+	 * The underlying PHP-CS-Fixer configuration instance.
+	 *
+	 * Configured during construction with merged rules, the provided Finder,
+	 * tab indentation, Unix line endings, and risky mode enabled.
 	 */
 	private ConfigInterface $config;
 
 	/**
 	 * The class constructor.
 	 *
-	 * @param array<string, array<string, mixed>|bool> $rules
+	 * @param Finder                                   $finder the file finder instance used to locate PHP files
+	 * @param array<string, array<string, mixed>|bool> $rules  optional custom rules to merge with defaults
 	 */
 	public function __construct(
 		public Finder $finder,
@@ -52,7 +64,9 @@ final readonly class Fixer
 	}
 
 	/**
-	 * Returns fixer configuration.
+	 * Returns the fully configured PHP-CS-Fixer configuration.
+	 *
+	 * @return ConfigInterface the prepared configuration with rules, finder, and settings
 	 */
 	public function getConfig(): ConfigInterface
 	{
@@ -60,11 +74,14 @@ final readonly class Fixer
 	}
 
 	/**
-	 * Merge the given rules with the default rules.
+	 * Merges the given custom rules with the default rules.
 	 *
-	 * @param array<string, array<string, mixed>|bool> $rules
+	 * User-provided rules override the defaults where keys match, and any
+	 * defaults not overridden are preserved.
 	 *
-	 * @return array<string, array<string, mixed>|bool>
+	 * @param array<string, array<string, mixed>|bool> $rules custom rules to merge
+	 *
+	 * @return array<string, array<string, mixed>|bool> the merged rules array
 	 */
 	private function mergeRules(array $rules): array
 	{
