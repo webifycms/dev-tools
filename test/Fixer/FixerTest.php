@@ -137,6 +137,29 @@ final class FixerTest extends TestCase
 	}
 
 	/**
+	 * Test that options of an overridden rule are merged with its defaults.
+	 *
+	 * A package names only the options it changes, so the rest must survive.
+	 */
+	#[Test]
+	public function itKeepsDefaultOptionsOfAnOverriddenRule(): void
+	{
+		$fixer  = new Fixer($this->finder, [
+			'class_definition' => ['multi_line_extends_each_single_line' => true],
+		]);
+		$rules = $fixer->getConfig()->getRules();
+
+		self::assertEquals(
+			[
+				'multi_line_extends_each_single_line' => true,
+				'single_line'                         => false,
+				'single_item_single_line'             => false,
+			],
+			$rules['class_definition']
+		);
+	}
+
+	/**
 	 * Test that the finder is correctly set on the config.
 	 *
 	 * The config must retain the Finder instance passed to the constructor.

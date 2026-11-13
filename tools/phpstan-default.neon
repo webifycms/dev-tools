@@ -7,13 +7,11 @@
 # @author Mohammed Shifreen <mshifreen@gmail.com>
 
 parameters:
-	level: 8
+	# The strictest level. It is the default so a new package starts fully
+	# checked instead of quietly at level 8. A package that needs a lower level
+	# says so in its own config, next to the code that needs it.
+	level: 10
 	treatPhpDocTypesAsCertain: false
-	paths:
-	    - src
-	    - test
-	excludePaths:
-	    - vendor (?) # optional, might not exist
 	ignoreErrors:
 		# tests assert against known static types intentionally
 		- identifier: staticMethod.alreadyNarrowedType

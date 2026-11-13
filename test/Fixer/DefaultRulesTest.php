@@ -119,4 +119,38 @@ final class DefaultRulesTest extends TestCase
 		self::assertTrue($rules['yoda_style']['equal']);
 		self::assertTrue($rules['yoda_style']['identical']);
 	}
+
+	/**
+	 * Test that a class declaration which does not fit on one line stays split.
+	 *
+	 * Joining it back would push the line past the 120-column limit.
+	 */
+	#[Test]
+	public function itKeepsLongClassDeclarationsSplit(): void
+	{
+		$rules = DefaultRules::RULES;
+
+		self::assertArrayHasKey('class_definition', $rules);
+		self::assertIsArray($rules['class_definition']);
+		self::assertFalse($rules['class_definition']['single_line']);
+		self::assertFalse($rules['class_definition']['single_item_single_line']);
+	}
+
+	/**
+	 * Test that a wrapped list of parents or interfaces is left alone.
+	 *
+	 * Pulling the list back onto the class line would run past 120 columns.
+	 */
+	#[Test]
+	public function itAllowsWrappedExtendsAndImplementsLists(): void
+	{
+		$rules      = DefaultRules::RULES;
+		$constructs = $rules['single_space_around_construct']['constructs_followed_by_a_single_space'];
+
+		self::assertIsArray($constructs);
+		self::assertNotContains('extends', $constructs);
+		self::assertNotContains('implements', $constructs);
+		self::assertContains('class', $constructs);
+		self::assertContains('return', $constructs);
+	}
 }

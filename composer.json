@@ -16,6 +16,7 @@
         "friendsofphp/php-cs-fixer": "^3.0",
         "phpstan/phpstan": "^2.0",
         "rector/rector": "^2.0",
+        "squizlabs/php_codesniffer": "^4.0",
         "phpstan/phpstan-strict-rules": "^2.0",
         "phpstan/phpstan-phpunit": "^2.0",
         "phpstan/phpstan-deprecation-rules": "^2.0",
@@ -40,23 +41,26 @@
     },
     "scripts": {
         "sniff": [
-            "php-cs-fixer fix --verbose --dry-run --diff --show-progress=dots"
+            "php-cs-fixer fix --config=tools/.php-cs-fixer.dist.php --verbose --dry-run --diff --show-progress=dots"
         ],
         "analyse": [
-            "phpstan"
+            "phpstan analyse -c tools/phpstan.dist.neon"
         ],
         "rector": [
-            "rector process --dry-run"
+            "rector process --config=tools/rector.php --dry-run"
+        ],
+        "phpcs": [
+            "phpcs --standard=tools/phpcs.xml -p src test"
         ],
         "rector-process": [
-            "rector process"
+            "rector process --config=tools/rector.php"
         ],
         "test": [
-            "phpunit"
+            "phpunit -c tools/phpunit.xml.dist"
         ],
-        "code-check": ["@analyse", "@sniff"],
+        "code-check": ["@analyse", "@sniff", "@phpcs"],
         "code-format": [
-            "php-cs-fixer fix --verbose --show-progress=dots"
+            "php-cs-fixer fix --config=tools/.php-cs-fixer.dist.php --verbose --show-progress=dots"
         ]
     }
 }
