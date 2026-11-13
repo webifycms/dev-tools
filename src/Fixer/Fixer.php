@@ -85,6 +85,19 @@ final readonly class Fixer
 	 */
 	private function mergeRules(array $rules): array
 	{
-		return array_merge(DefaultRules::RULES, $rules);
+		$merged = DefaultRules::RULES;
+
+		foreach ($rules as $name => $options) {
+			$defaults = $merged[$name] ?? null;
+
+			// Options of the same rule are combined, so a package only has to
+			// name the options it changes. Replacing the whole set would drop
+			// defaults such as keeping a long class declaration split.
+			$merged[$name] = is_array($options) && is_array($defaults)
+				? $options + $defaults
+				: $options;
+		}
+
+		return $merged;
 	}
 }

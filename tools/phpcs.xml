@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!--
+	The file is part of the "webifycms/dev-tools", WebifyCMS development tools.
+
+	@see https://webifycms.com/tools/development-tools
+
+	@license Copyright (c) 2022 WebifyCMS
+	@license https://webifycms.com/extension/tools/license
+	@author Mohammed Shifreen <mshifreen@gmail.com>
+-->
+<ruleset name="WebifyCMS">
+	<description>
+		The shared width check. It only reports lines that run past 120 columns;
+		it is not a full coding standard. PHP-CS-Fixer stays in charge of style,
+		because it can rewrite code and this check cannot.
+	</description>
+
+	<!-- One indentation step is four columns, so a tab counts as four and the
+	     reported width matches what an editor shows. -->
+	<arg name="tab-width" value="4"/>
+	<arg name="extensions" value="php"/>
+	<arg name="encoding" value="utf-8"/>
+
+	<!-- Paths are passed on the command line, as this file is loaded from inside
+	     another package's vendor folder and any path written here would resolve
+	     against that folder instead. These patterns still keep a run with no path
+	     from walking into installed code. -->
+	<exclude-pattern>*/vendor/*</exclude-pattern>
+	<exclude-pattern>*/node_modules/*</exclude-pattern>
+
+	<!-- The same figure for both limits, so a line of 121 columns is an error and
+	     not a warning that a green run would ignore. The soft limit still matters:
+	     the sniff uses it to decide whether a long comment is an unbreakable URL,
+	     which it then leaves alone. -->
+	<rule ref="Generic.Files.LineLength">
+		<properties>
+			<property name="lineLimit" value="120"/>
+			<property name="absoluteLineLimit" value="120"/>
+		</properties>
+	</rule>
+</ruleset>

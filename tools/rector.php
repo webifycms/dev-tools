@@ -15,6 +15,6 @@ use Webify\Tools\Rector\Rector;
 
 // Initialize
 return new Rector()
-	->initialize([__DIR__ . '/src', __DIR__ . '/test'])
+	->initialize([dirname(__DIR__) . '/src', dirname(__DIR__) . '/test'])
 	->withPhpSets(php84: true)
 ;

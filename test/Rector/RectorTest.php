@@ -100,6 +100,7 @@ final class RectorTest extends TestCase
 		$rules     = $ref->getValue($builder);
 		$ruleClass = TypedPropertyFromStrictConstructorRector::class;
 
+		self::assertIsArray($rules);
 		self::assertContains($ruleClass, $rules);
 	}
 
