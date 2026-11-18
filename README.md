@@ -19,6 +19,11 @@ Install via composer
 composer require webifycms/dev-tools --dev
 ```
 
+## Release notes
+
+- [Changelog](CHANGELOG.md)
+- [Upgrade guide](UPGRADE.md)
+
 ## Configuration
 
 Every package keeps its tool configuration in a `tools/` folder. The tools do not
@@ -228,25 +233,3 @@ vendor/bin/phpunit -c tools/phpunit.xml.dist
 
 >***NOTE:** You can also set up this extension with your favorite IDE or editor, so you can get more 
 > advantages like format on save while developing.*
-
-## TODO
-
-- [x] Install `phpstan/phpstan` library.
-- [x] Install Rector `rector/rector` library.
-- [x] Add alias commands for the library commands, like the following:
-
-```bash
-# ./vendor/bin/php-cs-fixer fix --verbose --diff --show-progress=dots --dry-run
-composer sniff
-
-# ./vendor/bin/php-cs-fixer fix --verbose --show-progress=dots
-composer code-format
-
-# ./vendor/bin/phpstan
-composer analyse
-
-# ./vendor/bin/phpcs --standard=tools/phpcs.xml src test
-composer phpcs
-```
-
-- [x] Add support to pass arguments to the alias commands.
