@@ -1,7 +1,8 @@
 # WebifyCMS Dev Tools
 
 Package `webifycms/dev-tools` (composer type `webifycms-tool`). Shared development
-tooling for every WebifyCMS package: PHP-CS-Fixer, PHPStan, Rector, `symfony/var-dumper`.
+tooling for every WebifyCMS package: PHP-CS-Fixer, PHPStan, Rector,
+`symfony/var-dumper`, `filp/whoops`.
 
 ## Layout
 
@@ -9,6 +10,11 @@ tooling for every WebifyCMS package: PHP-CS-Fixer, PHPStan, Rector, `symfony/var
 src/Fixer/Fixer.php             # (new Fixer($finder, $rules))->getConfig()
 src/Fixer/DefaultRules.php      # default CS rules
 src/Rector/Rector.php           # (new Rector())->initialize([...])->withPhpSets(...)
+src/Whoops/Whoops.php           # (new Whoops())->register()
+src/Whoops/Handler/WebifyPageHandler.php  # branded Whoops page
+assets/logo.png                 # white logo placed in the page header
+assets/whoops.css               # stylesheet for that page
+templates/whoops/error.html.php # full page layout
 tools/phpstan-default.neon      # shared PHPStan includes, level 10
 tools/phpcs.xml                 # shared 120-column check (PHP_CodeSniffer)
 tools/phpstan.dist.neon         # this package's own PHPStan config
@@ -28,6 +34,12 @@ uses `../`.
 - `tools/.php-cs-fixer.dist.php` → `use Webify\Tools\Fixer; return (new Fixer($finder, $rules))->getConfig();`
 - `tools/phpstan.dist.neon` → `includes: [../vendor/webifycms/dev-tools/tools/phpstan-default.neon]`
 - `tools/rector.php` → `use Webify\Tools\Rector; return (new Rector())->initialize([...]);`
+- Whoops → `use Webify\Tools\Whoops\Whoops; (new Whoops())->register();`. Web
+  requests get the branded page built from `assets/` and `templates/whoops/`;
+  CLI runs get Whoops' plain-text page. The WebifyCMS logo is the default;
+  `logo: ''` hides it, and `logo`/`logoAlt` accept an application's own image.
+  Pass a handler to the constructor to replace the default, or call `getRun()`
+  for extra settings.
 - `composer phpcs` →
   `phpcs --standard=vendor/webifycms/dev-tools/tools/phpcs.xml src test`.
   The paths must be passed on the command line: the ruleset is loaded from another

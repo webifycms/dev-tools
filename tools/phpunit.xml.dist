@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+	The file is part of the "webifycms/dev-tools", WebifyCMS development tools.
+
+	@see https://webifycms.com/tools/development-tools
+
+	@license Copyright (c) 2022 WebifyCMS
+	@license https://webifycms.com/extension/tools/license
+	@author Mohammed Shifreen <mshifreen@gmail.com>
+-->
 <phpunit
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/11.5/phpunit.xsd"

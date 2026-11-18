@@ -9,6 +9,7 @@ The following libraries are included:
 - `rector/rector`
 - `squizlabs/php_codesniffer`
 - `symfony/var-dumper`
+- `filp/whoops`
 
 ## Installation
 
@@ -159,6 +160,37 @@ Check the 120-column limit
 ```
 
 ## Debugging
+
+The `filp/whoops` package is included behind a WebifyCMS wrapper. In a package
+that has `webifycms/dev-tools` installed for development, one call turns on the
+branded error page:
+
+```php
+use Webify\Tools\Whoops\Whoops;
+
+(new Whoops())->register();
+```
+
+Web requests get the branded page, which shows the error, stack frames and
+request values. Command-line runs get Whoops' plain-text page instead, because
+a terminal cannot read HTML. Pass a handler to `new Whoops($handler)` to replace
+the default, or use `getRun()` for extra Whoops settings.
+
+The bundled WebifyCMS logo is only the default. An application can supply its
+own image source or remove the brand:
+
+```php
+use Webify\Tools\Whoops\Whoops;
+
+(new Whoops(logo: ''))->register(); // no logo
+(new Whoops(logo: 'https://example.test/logo.svg', logoAlt: 'Acme'))->register();
+```
+
+The stylesheet lives in `assets/`; the full page layout lives in
+`templates/whoops/error.html.php`. A package can use
+`Webify\Tools\Whoops\Handler\WebifyPageHandler` on its own when it only needs the
+page, for example to render one caught error. That handler accepts the same
+`logo` and `logoAlt` arguments.
 
 The `symfony/var-dumper` package is included and provides the `dump()` and `dd()` helper functions for inspecting
 variables during development.
